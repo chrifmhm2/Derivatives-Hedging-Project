@@ -1,0 +1,59 @@
+@startuml conception
+
+
+class MonteCarlo {
+    + option : Option 
+    + model : BlackScholesModel
+    + fixingDatesNumber (N): int 
+    + sampleNumber : int 
+    
+}
+
+
+abstract class Option {
+    + Maturity : Date 
+    + strike : double 
+    + type :  OptionType 
+    + abstract calculPayOff 
+}
+
+Enum OptionType {
+    + Basket : 0 
+    + Asian : 1 
+    + Performance : 2
+}
+
+class OptionBasket {
+    + override calculPayOff()
+}
+
+class OptionAsian {
+    + override calculPayOff()
+}
+
+class OptionPerformance {
+    + override calculPayOff()
+}
+
+Option <|-- OptionBasket 
+Option <|-- OptionAsian 
+Option <|-- OptionPerformance 
+
+
+abstract class Model {
+
+}
+
+class BlackScholesModel {
+    + optionSize : double
+    + payoffCoeffcients : double[] 
+    + volatility : double[]
+    + interesetRate : double 
+    + correlation : double 
+    + headingDatesNumber : int 
+    + fdStep  : int 
+}
+
+Model <|-- BlackScholesModel
+
+@enduml 
