@@ -4,8 +4,10 @@
 class MonteCarlo {
     + option : Option 
     + model : BlackScholesModel
-    + fixingDatesNumber (N): int 
-    + sampleNumber : int 
+    + fixingDatesNumber : int N
+    + sampleNumber : int M
+    + price()
+    
     
 }
 
@@ -14,7 +16,7 @@ abstract class Option {
     + Maturity : Date 
     + strike : double 
     + type :  OptionType 
-    + abstract calculPayOff 
+    + abstract payOff 
 }
 
 Enum OptionType {
@@ -24,15 +26,15 @@ Enum OptionType {
 }
 
 class OptionBasket {
-    + override calculPayOff()
+    + override payOff()
 }
 
 class OptionAsian {
-    + override calculPayOff()
+    + override payOff()
 }
 
 class OptionPerformance {
-    + override calculPayOff()
+    + override payOff()
 }
 
 Option <|-- OptionBasket 
@@ -45,13 +47,15 @@ abstract class Model {
 }
 
 class BlackScholesModel {
+    + interesetRate : double 
+    + volatility : double[]
+    + spot : double[]
     + optionSize : double
     + payoffCoeffcients : double[] 
-    + volatility : double[]
-    + interesetRate : double 
     + correlation : double 
     + headingDatesNumber : int 
     + fdStep  : int 
+    + void asset()
 }
 
 Model <|-- BlackScholesModel
