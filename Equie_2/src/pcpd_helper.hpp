@@ -22,7 +22,6 @@ class PricingResults
     friend std::ostream& operator<<(std::ostream& stm, const PricingResults& res);
 };
 
-
 class HedgingResults
 {
   private:

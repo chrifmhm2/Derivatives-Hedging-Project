@@ -4,25 +4,31 @@
 #include <vector>
 #include "json_helper.hpp"
 
-void from_json(const nlohmann::json &j, PnlVect *&vect) {
+void
+from_json(const nlohmann::json& j, PnlVect*& vect)
+{
     if (j.is_number()) {
         double value = j.get<double>();
         vect = pnl_vect_create_from_double(1, value);
     } else {
-        std::vector<double> stl_v = j.get<std::vector<double>>();
+        std::vector<double> stl_v = j.get<std::vector<double> >();
         vect = pnl_vect_create_from_ptr(stl_v.size(), stl_v.data());
     }
 }
 
-void to_json(nlohmann::json &j, const PnlVect *vect) {
+void
+to_json(nlohmann::json& j, const PnlVect* vect)
+{
     j = nlohmann::json::array();
     for (int i = 0; i < vect->size; i++) {
         j.push_back(GET(vect, i));
     }
 }
 
-void from_json(const nlohmann::json &j, PnlMat *&mat) {
-    std::vector<std::vector<double>> stl_m = j.get<std::vector<std::vector<double>>>();
+void
+from_json(const nlohmann::json& j, PnlMat*& mat)
+{
+    std::vector<std::vector<double> > stl_m = j.get<std::vector<std::vector<double> > >();
     int nLines = stl_m.size();
     if (nLines == 0) {
         mat = pnl_mat_create(0, 0);
@@ -44,7 +50,9 @@ void from_json(const nlohmann::json &j, PnlMat *&mat) {
     }
 }
 
-void to_json(nlohmann::json &j, const PnlMat *mat) {
+void
+to_json(nlohmann::json& j, const PnlMat* mat)
+{
     j = nlohmann::json::array();
     for (int i = 0; i < mat->m; i++) {
         PnlVect row = pnl_vect_wrap_mat_row(mat, i);
