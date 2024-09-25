@@ -1,4 +1,4 @@
-```latex
+
 # Derivatives Hedging Project
 
 ## 1. Overview
@@ -68,6 +68,5 @@ target_link_libraries(yourExecutableName
     ${PNL_LIBRARIES}
     nlohmann_json::nlohmann_json
 )
-```
 ```
 
