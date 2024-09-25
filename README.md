@@ -1,5 +1,3 @@
-I apologize for the oversight! Here’s the LaTeX code tailored for your README file. Each code block is enclosed in triple backticks so you can copy and paste it directly into your GitHub README without issues.
-
 ```latex
 # Derivatives Hedging Project
 
