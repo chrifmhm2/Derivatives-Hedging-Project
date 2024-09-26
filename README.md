@@ -2,8 +2,7 @@
 # Derivatives Hedging Project
 
 ## 1. Overview
-
-This project aims to develop a financial valuation and hedging tool for derivative products using **C++**. The goal is to apply both the design and programming principles studied in the second-year courses, as well as the **Black-Scholes** theory introduced in the "Introduction to Derivative Products" course.
+This project involves developing a financial valuation and hedging tool for derivative products using **C++**. The tool implements key design and programming principles, alongside the **Black-Scholes** model for pricing derivatives, aiming to provide an efficient solution for valuing and hedging various financial instruments.
 
 ## 2. Dependencies and Compilation
 
